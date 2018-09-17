@@ -29,7 +29,7 @@ MeshTab::~MeshTab()
 void MeshTab::_buildTree()
 {
   // Create meshes alias
-  auto& arr = _meshes;
+  //auto& arr = _meshes;
   // Tab containing mesh already in results
   vector_t<NodePtr> alreadyIn;
 
@@ -58,13 +58,13 @@ void MeshTab::_buildTree()
       size_t i      = 0;
       bool notFound = true;
       // Find and delete the root node standing for this mesh
-      while (i < arr.size() && notFound) {
-        if (obj->name == arr[i].id()) {
-          stl_util::remove(arr, i);
-          notFound = false;
-        }
-        ++i;
-      }
+      //while (i < arr.size() && notFound) {
+      //  if (obj->name == arr[i].id()) {
+      //    stl_util::remove(arr, i);
+      //    notFound = false;
+      //  }
+      //  ++i;
+      //}
     }
 
     alreadyIn.emplace_back(obj);
@@ -115,39 +115,39 @@ void MeshTab::_renderTree()
   }
 
   // Meshes
-  for (auto& meshTreeItem : _meshes) {
-    // Get the item adapter
-    auto& adapter = meshTreeItem.adapter();
-    // Render the tools
-    for (auto& tool : adapter.getTools()) {
-      tool->render();
-      ImGui::SameLine();
-    }
-    // Render tree item
-    if (ImGui::Selectable(adapter.id().c_str(), meshTreeItem.isActive())) {
-      toggleSelection(meshTreeItem, _meshes);
-    }
-    ImGui::SameLine();
-    // Render type information
-    ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetColorBot());
-    ImGui::TextWrapped("- %s", adapter.type().c_str());
-    ImGui::PopStyleColor();
-  }
+  //for (auto& meshTreeItem : _meshes) {
+  //  // Get the item adapter
+  //  auto& adapter = meshTreeItem.adapter();
+  //  // Render the tools
+  //  for (auto& tool : adapter.getTools()) {
+  //    tool->render();
+  //    ImGui::SameLine();
+  //  }
+  //  // Render tree item
+  //  if (ImGui::Selectable(adapter.id().c_str(), meshTreeItem.isActive())) {
+  //    toggleSelection(meshTreeItem, _meshes);
+  //  }
+  //  ImGui::SameLine();
+  //  // Render type information
+  //  ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetColorBot());
+  //  ImGui::TextWrapped("- %s", adapter.type().c_str());
+  //  ImGui::PopStyleColor();
+  //}
 }
 
 void MeshTab::_renderProperties()
 {
   // Meshes
-  for (auto& meshTreeItem : _meshes) {
-    if (meshTreeItem.isActive()) {
-      // Get the item adapter
-      auto& adapter    = meshTreeItem.adapter();
-      auto& properties = adapter.getProperties();
-      if (properties) {
-        properties->render();
-      }
-    }
-  }
+  //for (auto& meshTreeItem : _meshes) {
+  //  if (meshTreeItem.isActive()) {
+  //    // Get the item adapter
+  //    auto& adapter    = meshTreeItem.adapter();
+  //    auto& properties = adapter.getProperties();
+  //    if (properties) {
+  //      properties->render();
+  //    }
+  //  }
+  //}
 }
 
 } // end of namespace BABYLON

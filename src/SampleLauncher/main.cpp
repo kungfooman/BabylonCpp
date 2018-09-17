@@ -67,7 +67,7 @@ int runSample(const BABYLON::Samples::SamplesIndex& samples,
   int exitcode = 0;
   // Create the sample launcher
   SampleLauncherOptions options;
-  options.showInspectorWindow = showInspectorWindow;
+  options.showInspectorWindow = 1;
   SampleLauncher sampleLauncher{options};
   if (sampleLauncher.intialize()) {
     // Create the renderable scene

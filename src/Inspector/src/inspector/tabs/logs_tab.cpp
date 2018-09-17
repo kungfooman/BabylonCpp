@@ -32,20 +32,20 @@ void LogsTab::initialize()
     unsigned int logType = logLevel.first;
     if ((logType != LogLevels::LEVEL_QUIET)
         && (logType != LogLevels::LEVEL_TRACE)) {
-      _logLevels.emplace_back(logLevel);
+      //_logLevels.emplace_back(logLevel);
     }
   }
   // Subscribe to channels
-  for (auto& logLevel : _logLevels) {
-    bool isSubscribed    = false;
-    unsigned int logType = logLevel.first;
-    if (logType == LogLevels::LEVEL_INFO) {
-      Logger::Instance().registerLogMessageListener(LogLevels::LEVEL_INFO,
-                                                    logListenerDelegate);
-      isSubscribed = true;
-    }
-    _subscribedLogChannels[logType] = isSubscribed;
-  }
+  //for (auto& logLevel : _logLevels) {
+  //  bool isSubscribed    = false;
+  //  unsigned int logType = logLevel.first;
+  //  if (logType == LogLevels::LEVEL_INFO) {
+  //    Logger::Instance().registerLogMessageListener(LogLevels::LEVEL_INFO,
+  //                                                  logListenerDelegate);
+  //    isSubscribed = true;
+  //  }
+  //  _subscribedLogChannels[logType] = isSubscribed;
+  //}
 }
 
 void LogsTab::render()
@@ -57,27 +57,27 @@ void LogsTab::render()
     }
     ImGui::SameLine();
     // Channel filters
-    for (auto& logLevel : _logLevels) {
-      ImGui::SameLine();
-      unsigned int channelType   = logLevel.first;
-      std::string logLevelLabels = logLevel.second;
-      bool subscribeToLogChannel = _subscribedLogChannels[channelType];
-      if (ImGui::Checkbox(logLevelLabels.c_str(), &subscribeToLogChannel)) {
-      }
-      // Register / unregister
-      if (subscribeToLogChannel != _subscribedLogChannels[channelType]) {
-        if (subscribeToLogChannel) {
-          Logger::Instance().registerLogMessageListener(channelType,
-                                                        logListenerDelegate);
-        }
-        else {
-          Logger::Instance().unregisterLogMessageListener(channelType,
-                                                          logListenerDelegate);
-        }
-        _subscribedLogChannels[channelType]
-          = Logger::Instance().isSubscribed(channelType, logListenerDelegate);
-      }
-    }
+    //for (auto& logLevel : _logLevels) {
+    //  ImGui::SameLine();
+    //  unsigned int channelType   = logLevel.first;
+    //  std::string logLevelLabels = logLevel.second;
+    //  bool subscribeToLogChannel = _subscribedLogChannels[channelType];
+    //  if (ImGui::Checkbox(logLevelLabels.c_str(), &subscribeToLogChannel)) {
+    //  }
+    //  // Register / unregister
+    //  if (subscribeToLogChannel != _subscribedLogChannels[channelType]) {
+    //    if (subscribeToLogChannel) {
+    //      Logger::Instance().registerLogMessageListener(channelType,
+    //                                                    logListenerDelegate);
+    //    }
+    //    else {
+    //      Logger::Instance().unregisterLogMessageListener(channelType,
+    //                                                      logListenerDelegate);
+    //    }
+    //    _subscribedLogChannels[channelType]
+    //      = Logger::Instance().isSubscribed(channelType, logListenerDelegate);
+    //  }
+    //}
     // Log messages
     ImGui::Separator();
     if (ImGui::BeginChild("log_messages")) {

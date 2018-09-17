@@ -26,7 +26,7 @@ protected:
 
 private:
   bool _isInitialized;
-  std::vector<TreeItem<MaterialAdapter>> _materials;
+ // std::vector<TreeItem<MaterialAdapter>> _materials;
 
 }; // end of class MaterialTab
 

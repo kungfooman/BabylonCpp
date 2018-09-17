@@ -14,7 +14,7 @@ class BABYLON_SHARED_EXPORT CameraTab : public PropertyTab {
 
 public:
   CameraTab(Inspector& inspector);
-  ~CameraTab() override;
+  //~CameraTab() override;
 
 protected:
   /** Builds the tree */
@@ -26,7 +26,7 @@ protected:
 
 private:
   bool _isInitialized;
-  std::vector<TreeItem<CameraAdapter>> _cameras;
+  //std::vector<TreeItem<CameraAdapter>> _cameras;
 
 }; // end of class CameraTab
 

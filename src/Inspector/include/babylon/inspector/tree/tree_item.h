@@ -16,7 +16,9 @@ public:
   {
   }
 
-  TreeItem(const TreeItem& treeitem) = delete;
+  //TreeItem(const TreeItem& treeitem) = delete;
+
+
 
   TreeItem(TreeItem&& treeitem)
       : children(::std::move(treeitem.children))
@@ -26,7 +28,7 @@ public:
   {
   }
 
-  TreeItem& operator=(const TreeItem& treeitem) = delete;
+  //TreeItem& operator=(const TreeItem& treeitem) = delete;
 
   TreeItem& operator=(TreeItem&& treeitem)
   {

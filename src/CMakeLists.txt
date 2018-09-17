@@ -4,7 +4,7 @@
 option(OPTION_BUILD_INSPECTOR "Build shared the inspector debugging tool."  ON)
 
 if ("${CMAKE_CXX_COMPILER_ID}" MATCHES "MSVC")
-    set(OPTION_BUILD_INSPECTOR OFF)
+    #set(OPTION_BUILD_INSPECTOR OFF)
 endif()
 
 # ============================================================================ #

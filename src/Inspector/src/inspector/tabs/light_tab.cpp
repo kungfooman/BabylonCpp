@@ -32,10 +32,10 @@ void LightTab::_buildTree()
   }
 
   // Get all lights from the first scene.
-  _lights.clear();
+  //_lights.clear();
   for (const auto& light : scene->lights) {
-    _lights.emplace_back(
-      TreeItem<LightAdapter>{*this, ::std::make_unique<LightAdapter>(light)});
+   // _lights.emplace_back(
+   //   TreeItem<LightAdapter>{*this, ::std::make_unique<LightAdapter>(light)});
   }
 
   // Set initialized flag
@@ -49,39 +49,39 @@ void LightTab::_renderTree()
   }
 
   // Lights
-  for (auto& lightTreeItem : _lights) {
-    // Get the item adapter
-    auto& adapter = lightTreeItem.adapter();
-    // Render the tools
-    for (auto& tool : adapter.getTools()) {
-      tool->render();
-      ImGui::SameLine();
-    }
-    // Render tree item
-    if (ImGui::Selectable(adapter.id().c_str(), lightTreeItem.isActive())) {
-      toggleSelection(lightTreeItem, _lights);
-    }
-    ImGui::SameLine();
-    // Render type information
-    ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetColorBot());
-    ImGui::TextWrapped("- %s", adapter.type().c_str());
-    ImGui::PopStyleColor();
-  }
+  //for (auto& lightTreeItem : _lights) {
+  //  // Get the item adapter
+  //  auto& adapter = lightTreeItem.adapter();
+  //  // Render the tools
+  //  for (auto& tool : adapter.getTools()) {
+  //    tool->render();
+  //    ImGui::SameLine();
+  //  }
+  //  // Render tree item
+  //  if (ImGui::Selectable(adapter.id().c_str(), lightTreeItem.isActive())) {
+  //    toggleSelection(lightTreeItem, _lights);
+  //  }
+  //  ImGui::SameLine();
+  //  // Render type information
+  //  ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetColorBot());
+  //  ImGui::TextWrapped("- %s", adapter.type().c_str());
+  //  ImGui::PopStyleColor();
+  //}
 }
 
 void LightTab::_renderProperties()
 {
   // Lights
-  for (auto& lightTreeItem : _lights) {
-    if (lightTreeItem.isActive()) {
-      // Get the item adapter
-      auto& adapter    = lightTreeItem.adapter();
-      auto& properties = adapter.getProperties();
-      if (properties) {
-        properties->render();
-      }
-    }
-  }
+  //for (auto& lightTreeItem : _lights) {
+  //  if (lightTreeItem.isActive()) {
+  //    // Get the item adapter
+  //    auto& adapter    = lightTreeItem.adapter();
+  //    auto& properties = adapter.getProperties();
+  //    if (properties) {
+  //      properties->render();
+  //    }
+  //  }
+  //}
 }
 
 } // end of namespace BABYLON

@@ -26,7 +26,7 @@ protected:
 
 private:
   bool _isInitialized;
-  std::vector<TreeItem<MeshAdapter>> _meshes;
+ // std::vector<TreeItem<MeshAdapter>> _meshes;
 
 }; // end of class MeshTab
 

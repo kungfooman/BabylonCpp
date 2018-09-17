@@ -31,12 +31,12 @@ void MaterialTab::_buildTree()
     return;
   }
 
-  // Get all materials from the first scene.
-  _materials.clear();
-  for (const auto& mat : scene->materials) {
-    _materials.emplace_back(TreeItem<MaterialAdapter>{
-      *this, ::std::make_unique<MaterialAdapter>(mat)});
-  }
+  //// Get all materials from the first scene.
+  ////_materials.clear();
+  //for (const auto& mat : scene->materials) {
+  //  _materials.emplace_back(TreeItem<MaterialAdapter>{
+  //    *this, ::std::make_unique<MaterialAdapter>(mat)});
+  //}
 
   // Set initialized flag
   _isInitialized = true;
@@ -44,45 +44,45 @@ void MaterialTab::_buildTree()
 
 void MaterialTab::_renderTree()
 {
-  if (!_isInitialized
-      || _inspector.scene()->materials.size() != _materials.size()) {
-    _buildTree();
-  }
-
-  // Materials
-  for (auto& materialTreeItem : _materials) {
-    // Get the item adapter
-    auto& adapter = materialTreeItem.adapter();
-    // Render the tools
-    for (auto& tool : adapter.getTools()) {
-      tool->render();
-      ImGui::SameLine();
-    }
-    // Render tree item
-    if (ImGui::Selectable(adapter.id().c_str(), materialTreeItem.isActive())) {
-      toggleSelection(materialTreeItem, _materials);
-    }
-    ImGui::SameLine();
-    // Render type information
-    ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetColorBot());
-    ImGui::TextWrapped("- %s", adapter.type().c_str());
-    ImGui::PopStyleColor();
-  }
+  //if (!_isInitialized
+  //    || _inspector.scene()->materials.size() != _materials.size()) {
+  //  _buildTree();
+  //}
+  //
+  //// Materials
+  //for (auto& materialTreeItem : _materials) {
+  //  // Get the item adapter
+  //  auto& adapter = materialTreeItem.adapter();
+  //  // Render the tools
+  //  for (auto& tool : adapter.getTools()) {
+  //    tool->render();
+  //    ImGui::SameLine();
+  //  }
+  //  // Render tree item
+  //  if (ImGui::Selectable(adapter.id().c_str(), materialTreeItem.isActive())) {
+  //    toggleSelection(materialTreeItem, _materials);
+  //  }
+  //  ImGui::SameLine();
+  //  // Render type information
+  //  ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetColorBot());
+  //  ImGui::TextWrapped("- %s", adapter.type().c_str());
+  //  ImGui::PopStyleColor();
+  //}
 }
 
 void MaterialTab::_renderProperties()
 {
   // Materials
-  for (auto& materialTreeItem : _materials) {
-    if (materialTreeItem.isActive()) {
-      // Get the item adapter
-      auto& adapter    = materialTreeItem.adapter();
-      auto& properties = adapter.getProperties();
-      if (properties) {
-        properties->render();
-      }
-    }
-  }
+  //for (auto& materialTreeItem : _materials) {
+  //  if (materialTreeItem.isActive()) {
+  //    // Get the item adapter
+  //    auto& adapter    = materialTreeItem.adapter();
+  //    auto& properties = adapter.getProperties();
+  //    if (properties) {
+  //      properties->render();
+  //    }
+  //  }
+  //}
 }
 
 } // end of namespace BABYLON

@@ -22,7 +22,7 @@ private:
   void initialize();
 
 private:
-  std::vector<std::pair<unsigned int, std::string>> _logLevels;
+  //std::vector<std::pair<unsigned int, std::string>> _logLevels;
   std::unordered_map<unsigned int, bool> _subscribedLogChannels;
 
 }; // end of class LogsTab

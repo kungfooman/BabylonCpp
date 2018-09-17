@@ -26,7 +26,7 @@ protected:
 
 private:
   bool _isInitialized;
-  std::vector<TreeItem<LightAdapter>> _lights;
+  //std::vector<TreeItem<LightAdapter>> _lights;
 
 }; // end of class LightTab
 

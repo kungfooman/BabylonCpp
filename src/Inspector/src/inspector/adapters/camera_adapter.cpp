@@ -23,9 +23,9 @@ CameraAdapter::CameraAdapter(const CameraPtr& camera)
   _buildPropertiesView();
 }
 
-CameraAdapter::~CameraAdapter()
-{
-}
+//CameraAdapter::~CameraAdapter()
+//{
+//}
 
 string_t CameraAdapter::id()
 {

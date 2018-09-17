@@ -23,6 +23,10 @@
 #include <babylon/imgui/imgui_dock.h>
 
 // Inspector
+#include <babylon/inspector/adapters/camera_adapter.h>
+#include <babylon/inspector/adapters/light_adapter.h>
+#include <babylon/inspector/adapters/material_adapter.h>
+#include <babylon/inspector/adapters/mesh_adapter.h>
 #include <babylon/inspector/actions/action_store.h>
 #include <babylon/inspector/tabs/camera_tab.h>
 #include <babylon/inspector/tabs/light_tab.h>

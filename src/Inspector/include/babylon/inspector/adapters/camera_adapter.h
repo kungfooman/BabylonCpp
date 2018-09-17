@@ -15,7 +15,7 @@ class CameraAdapter : public Adapter, public ICameraPOV {
 
 public:
   CameraAdapter(const CameraPtr& camera);
-  ~CameraAdapter() override;
+ // ~CameraAdapter() override;
 
   /**
    * @brief Returns the name displayed in the tree.
