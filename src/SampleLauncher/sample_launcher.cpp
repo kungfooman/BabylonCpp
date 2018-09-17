@@ -1,4 +1,5 @@
-#include <babylon/samples/sample_launcher.h>
+#include "sample_launcher.h"
+#include "canvas.h"
 
 // GLXW
 #include <GLXW/glxw.h>
@@ -20,7 +21,6 @@
 #include <babylon/core/time.h>
 #include <babylon/engine/engine.h>
 #include <babylon/engine/scene.h>
-#include <babylon/impl/canvas.h>
 #include <babylon/mesh/abstract_mesh.h>
 
 // Inspector

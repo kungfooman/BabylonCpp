@@ -1,9 +1,8 @@
-#include <argtable3/argtable3.h>
 #include <babylon/babylon_version.h>
 #include <babylon/core/delegates/delegate.h>
 #include <babylon/core/logging.h>
 #include <babylon/core/string.h>
-#include <babylon/samples/sample_launcher.h>
+#include "sample_launcher.h"
 #include <babylon/samples/samples_index.h>
 #include <sstream>
 #include "ccall.h"
@@ -163,86 +162,8 @@ int sampleLauncherMain(int l, int v, int i, const char* sampleGroup,
 }
 
 CCALL int launcher_main() {
-
-	int argc = 1;
-  char* argv[] = {"dll"};
-	
-	
-  /** Program arguments definition **/
-  struct arg_lit* list   = arg_lit0("lL", NULL, "list samples");
-  struct arg_str* sample = arg_str0(
-    "S", "sample", "<SAMPE>", "sample to launch (default is \"BasicScene\")");
-  struct arg_str* sampleGroup = arg_str0(
-    "G", "sample-group", "<SAMPE-GROUP>",
-    "sample group to launch (sample-group \"All\" contains all samples)");
-  struct arg_lit* verbose = arg_lit0("v", "verbose,debug", "verbose messages");
-  struct arg_lit* inspector
-    = arg_lit0("i", "inspector", "show inspector window");
-  struct arg_lit* help = arg_lit0(NULL, "help", "print this help and exit");
-  struct arg_lit* version
-    = arg_lit0(NULL, "version", "print version information and exit");
-  struct arg_end* end = arg_end(20);
-  void* argtable[]
-    = {list, sample, sampleGroup, verbose, inspector, help, version, end};
-  const char* progname = "SampleLauncher";
-  int nerrors;
-  int exitcode = 0;
-
-  /** Verify the argtable[] entries were allocated sucessfully **/
-  if (arg_nullcheck(argtable) != 0) {
-    /** NULL entries were detected, some allocations must have failed **/
-    printf("%s: insufficient memory\n", progname);
-    exitcode = 1;
-    arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
-    return exitcode;
-  }
-
-  /** Set the default sample values prior to parsing **/
-  sample->sval[0] = "BasicScene";
-
-  /**  Set the default sample group prior to parsing */
-  sampleGroup->sval[0] = "";
-
-  /** Parse the command line as defined by argtable[] **/
-  nerrors = arg_parse(argc, argv, argtable);
-
-  /** Special case: '--help' takes precedence over error reporting **/
-  if (help->count > 0) {
-    printf("Usage: %s", progname);
-    arg_print_syntax(stdout, argtable, "\n");
-    printf(
-      "This program acts as a sample launcher for demonstrating the usage of "
-      "the BabylonCpp library\n");
-    arg_print_glossary(stdout, argtable, "  %-35s %s\n");
-    exitcode = 0;
-    arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
-    return exitcode;
-  }
-
-  /** Special case: '--version' takes precedence error reporting **/
-  if (version->count > 0) {
-    printf("%s\n", BABYLONCPP_NAME_VERSION);
-    exitcode = 0;
-    arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
-    return exitcode;
-  }
-
-  /** If the parser returned any errors then display them and exit **/
-  if (nerrors > 0) {
-    /** Display the error details contained in the arg_end struct. **/
-    arg_print_errors(stdout, end, progname);
-    printf("Try '%s --help' for more information.\n", progname);
-    exitcode = 1;
-    arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
-    return exitcode;
-  }
-
-  /** Normal case: run sample **/
-  exitcode = sampleLauncherMain(list->count, verbose->count, inspector->count,
-                                sampleGroup->sval[0], sample->sval[0]);
-
-  /** Deallocate each non-null entry in argtable[] **/
-  arg_freetable(argtable, sizeof(argtable) / sizeof(argtable[0]));
-
-  return exitcode;
+	int exitcode = 0;
+	//exitcode = sampleLauncherMain(0, 1, 0, "", "BasicScene");
+	exitcode = sampleLauncherMain(0, 1, 0, "", "ImportMeshesSkullScene");
+	return exitcode;
 }

@@ -1,6 +1,5 @@
-#include <babylon/impl/canvas.h>
-
-#include <babylon/impl/gl_rendering_context.h>
+#include "canvas.h"
+#include "gl_rendering_context.h"
 
 namespace BABYLON {
 namespace impl {

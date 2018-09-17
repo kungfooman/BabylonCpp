@@ -37,8 +37,8 @@ file(GLOB_RECURSE HEADER_FILES
 
 file(GLOB_RECURSE SOURCE_FILES
     ${GLXW_SOURCE_DIRS}/glxw.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp)
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
 set(BABYLON_SAMPLES_SOURCES
     ${HEADER_FILES}
@@ -59,12 +59,7 @@ target_include_directories(${TARGET}
     PRIVATE
     ${GLFW_INCLUDE_DIRS}
     ${GLXW_INCLUDE_DIRS}
-    ${CMAKE_CURRENT_SOURCE_DIR}/../BabylonCpp/include
-    ${CMAKE_CURRENT_BINARY_DIR}/../BabylonCpp/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/../Extensions/include
-    ${CMAKE_CURRENT_BINARY_DIR}/../Extensions/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/../Samples/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 if (OPTION_BUILD_INSPECTOR)
