@@ -6,6 +6,7 @@
 #include <babylon/samples/sample_launcher.h>
 #include <babylon/samples/samples_index.h>
 #include <sstream>
+#include "ccall.h"
 
 struct ConsoleLogger {
 
@@ -161,8 +162,12 @@ int sampleLauncherMain(int l, int v, int i, const char* sampleGroup,
   return exitcode;
 }
 
-int main(int argc, char** argv)
-{
+CCALL int launcher_main() {
+
+	int argc = 1;
+  char* argv[] = {"dll"};
+	
+	
   /** Program arguments definition **/
   struct arg_lit* list   = arg_lit0("lL", NULL, "list samples");
   struct arg_str* sample = arg_str0(

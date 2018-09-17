@@ -50,7 +50,7 @@ set(BABYLON_SAMPLES_SOURCES
 # ============================================================================ #
 
 # Build executable
-add_executable(${TARGET}
+add_library(${TARGET} SHARED
     ${BABYLON_SAMPLES_SOURCES}
 )
 

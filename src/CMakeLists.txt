@@ -34,3 +34,5 @@ add_subdirectory(Samples)
 #### Applications ####
 # - Sample Launcher
 add_subdirectory(SampleLauncher)
+
+add_subdirectory(NodeFastcall)
